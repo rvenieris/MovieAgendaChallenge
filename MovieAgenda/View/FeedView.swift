@@ -5,4 +5,9 @@
 //  Created by Ricardo Venieris on 17/10/22.
 //
 
-import Foundation
+import UIKit
+
+
+class FeedView:UIView {
+    
+}
