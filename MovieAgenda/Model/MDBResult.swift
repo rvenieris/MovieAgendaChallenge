@@ -1,34 +1,42 @@
-//
-//  MDBMovies.swift
-//  MovieConsultor
-//
-//  Created by Ricardo Venieris on 24/05/18.
-//  Copyright © 2018 LES.PUC-RIO. All rights reserved.
-//
+    //
+    //  MDBMovies.swift
+    //  MovieConsultor
+    //
+    //  Created by Ricardo Venieris on 24/05/18.
+    //  Copyright © 2018 LES.PUC-RIO. All rights reserved.
+    //
 
 import Foundation
-import CodableExtensions
+    //import CodableExtensions
 
     // MARK: - Result
-public struct MDBResult: Codable {
-    public let id: Int
-    public let name: String?
-    public let title: String?
+public struct MDBResult: Codable, Identifiable {
+    
+    static private let imageUrlPrefix = "https://image.tmdb.org/t/p/w500"
+    
+    
+    public var id: Int
+    public var name: String?
+    public var overview: String?
     public let originalTitle: String?
+    public var posterPath: String?
+    public var backdropPath: String?
+    public var mediaType: MediaType
+    public var genreIDS: [Int]?
+    public var voteAverage: Double
+    public var voteCount: Int
+    
+    public var posterURL: URL? {return fullImagePath(for: posterPath)}
+    public var backdropURL: URL?  {return fullImagePath(for: backdropPath)}
+    
+    public var adult: Bool?
+    public let title: String?
     public let releaseDate: String?
     public let video: Bool?
-    public let adult: Bool
-    public let backdropPath: String
-    public let originalLanguage: String
+    public let originalLanguage: String?
     public let originalName: String?
-    public let overview: String
-    public let posterPath: String
-    public let mediaType: MediaType
-    public let genreIDS: [Int]
-    public let popularity: Double
+    public let popularity: Double?
     public let firstAirDate: String?
-    public let voteAverage: Double
-    public let voteCount: Int
     public let originCountry: [String]?
     
     enum CodingKeys: String, CodingKey {
@@ -53,26 +61,11 @@ public struct MDBResult: Codable {
         case video = "video"
     }
     
-    public init(adult: Bool, backdropPath: String, id: Int, name: String?, originalLanguage: String, originalName: String?, overview: String, posterPath: String, mediaType: MediaType, genreIDS: [Int], popularity: Double, firstAirDate: String?, voteAverage: Double, voteCount: Int, originCountry: [String]?, title: String?, originalTitle: String?, releaseDate: String?, video: Bool?) {
-        self.adult = adult
-        self.backdropPath = backdropPath
-        self.id = id
-        self.name = name
-        self.originalLanguage = originalLanguage
-        self.originalName = originalName
-        self.overview = overview
-        self.posterPath = posterPath
-        self.mediaType = mediaType
-        self.genreIDS = genreIDS
-        self.popularity = popularity
-        self.firstAirDate = firstAirDate
-        self.voteAverage = voteAverage
-        self.voteCount = voteCount
-        self.originCountry = originCountry
-        self.title = title
-        self.originalTitle = originalTitle
-        self.releaseDate = releaseDate
-        self.video = video
+    
+    private func fullImagePath(for image:String?)->URL? {
+        guard let image = image,
+              let url = URL(string: Self.imageUrlPrefix+image) else {return nil}
+        return url
     }
 }
 

@@ -10,7 +10,6 @@
 		8C009A8828FD0CAA00382BE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C009A8728FD0CAA00382BE3 /* AppDelegate.swift */; };
 		8C009A8A28FD0CAA00382BE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C009A8928FD0CAA00382BE3 /* SceneDelegate.swift */; };
 		8C009A8C28FD0CAA00382BE3 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C009A8B28FD0CAA00382BE3 /* FeedViewController.swift */; };
-		8C009A8F28FD0CAA00382BE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C009A8D28FD0CAA00382BE3 /* Main.storyboard */; };
 		8C009A9128FD0CAE00382BE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C009A9028FD0CAE00382BE3 /* Assets.xcassets */; };
 		8C009A9428FD0CAE00382BE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C009A9228FD0CAE00382BE3 /* LaunchScreen.storyboard */; };
 		8C009A9F28FD0E2A00382BE3 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C009A9E28FD0E2A00382BE3 /* FeedView.swift */; };
@@ -23,6 +22,7 @@
 		8C009AB328FD155200382BE3 /* TMDBServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C009AB228FD155200382BE3 /* TMDBServices.swift */; };
 		8C533FA228FD836800D41744 /* MDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C533FA128FD836800D41744 /* MDBRequest.swift */; };
 		8C533FBA28FE75FC00D41744 /* ServicesExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C533FB928FE75FC00D41744 /* ServicesExtensions.swift */; };
+		8C86C68028FEEB7D00A9EC50 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86C67F28FEEB7D00A9EC50 /* FeedCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +30,6 @@
 		8C009A8728FD0CAA00382BE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C009A8928FD0CAA00382BE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8C009A8B28FD0CAA00382BE3 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
-		8C009A8E28FD0CAA00382BE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C009A9028FD0CAE00382BE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C009A9328FD0CAE00382BE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C009A9528FD0CAE00382BE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,6 +42,7 @@
 		8C009AB228FD155200382BE3 /* TMDBServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBServices.swift; sourceTree = "<group>"; };
 		8C533FA128FD836800D41744 /* MDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBRequest.swift; sourceTree = "<group>"; };
 		8C533FB928FE75FC00D41744 /* ServicesExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesExtensions.swift; sourceTree = "<group>"; };
+		8C86C67F28FEEB7D00A9EC50 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				8C009A9E28FD0E2A00382BE3 /* FeedView.swift */,
-				8C009A8D28FD0CAA00382BE3 /* Main.storyboard */,
+				8C86C67F28FEEB7D00A9EC50 /* FeedCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -194,7 +194,6 @@
 			files = (
 				8C009A9428FD0CAE00382BE3 /* LaunchScreen.storyboard in Resources */,
 				8C009A9128FD0CAE00382BE3 /* Assets.xcassets in Resources */,
-				8C009A8F28FD0CAA00382BE3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +214,7 @@
 				8C009A8828FD0CAA00382BE3 /* AppDelegate.swift in Sources */,
 				8C009AAC28FD135100382BE3 /* ModelExtensions.swift in Sources */,
 				8C009AAA28FD124400382BE3 /* MDBGenre.swift in Sources */,
+				8C86C68028FEEB7D00A9EC50 /* FeedCollectionViewCell.swift in Sources */,
 				8C009A8A28FD0CAA00382BE3 /* SceneDelegate.swift in Sources */,
 				8C533FBA28FE75FC00D41744 /* ServicesExtensions.swift in Sources */,
 			);
@@ -223,14 +223,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8C009A8D28FD0CAA00382BE3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8C009A8E28FD0CAA00382BE3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8C009A9228FD0CAE00382BE3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -366,10 +358,12 @@
 				DEVELOPMENT_TEAM = 67AYPRFZH8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MovieAgenda/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -393,10 +387,12 @@
 				DEVELOPMENT_TEAM = 67AYPRFZH8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MovieAgenda/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

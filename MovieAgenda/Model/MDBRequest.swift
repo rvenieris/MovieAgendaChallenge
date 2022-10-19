@@ -25,7 +25,7 @@ import CodableExtensions
 
     // MARK: - MDBRequest
 public struct MDBRequest: Codable {
-    let page: Int
+    public let page: Int
     public let results: [MDBResult]
     public let totalPages: Int
     public let totalResults: Int

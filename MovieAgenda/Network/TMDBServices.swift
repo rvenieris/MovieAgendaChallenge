@@ -1,9 +1,9 @@
-//
-//  TMDBServices.swift
-//  MovieAgenda
-//
-//  Created by Ricardo Venieris on 17/10/22.
-//
+    //
+    //  TMDBServices.swift
+    //  MovieAgenda
+    //
+    //  Created by Ricardo Venieris on 17/10/22.
+    //
 
 import Foundation
 
@@ -12,6 +12,7 @@ protocol TMDBRequestType {
 }
 
 class TMDBService {
+    static var defaultInstance = TMDBService(apiKey: "95b336b6369a2ad868d199034d34fc0c")
     
     enum ReqError:Error {
         case invalidURLRequest
@@ -21,17 +22,17 @@ class TMDBService {
     
     enum RequestType:String {
         case lists
-
+        
         case movieFavorites         = "/movie/favorites"
         case movieRecommendations   = "/movie/recommendations"
         case movieWatchlist         = "/movie/watchlist"
         case movieRated             = "/movie/rated"
-
+        
         case tvFavorites            = "/tv/favorites"
         case tvRecommendations      = "/tv/recommendations"
         case tvWatchlist            = "/tv/watchlist"
         case tvRated                = "/tv/rated"
-
+        
         case trendingAllDay         = "/trending/all/day"
         case trendingAllWeek        = "/trending/all/week"
         case trendingMovieDay       = "/trending/movie/day"
@@ -42,15 +43,15 @@ class TMDBService {
         case trendingPersonWeek     = "/trending/person/week"
     }
     
-
-//    var midiaType:MDBMovies.MidiaType = .movie
-//    var sortType:MDBMovies.SortType = .vote_average
-//    var sortOrder:MDBMovies.SortOrder = .desc
-//    var language:MDBMovies.Language = .ptBR
-//    var movieListType:MDBMovies.ListType = .discover
+    
+        //    var midiaType:MDBMovies.MidiaType = .movie
+        //    var sortType:MDBMovies.SortType = .vote_average
+        //    var sortOrder:MDBMovies.SortOrder = .desc
+        //    var language:MDBMovies.Language = .ptBR
+        //    var movieListType:MDBMovies.ListType = .discover
     var genres:[Int:String] = [:]
     
-//https://api.themoviedb.org/3/trending/person/week?api_key=95b336b6369a2ad868d199034d34fc0c
+        //https://api.themoviedb.org/3/trending/person/week?api_key=95b336b6369a2ad868d199034d34fc0c
     
         // -- MARK: Privates
     private let key = tmdbKey
@@ -60,15 +61,15 @@ class TMDBService {
     private var apiUrlPrefix:String { "\(dataRequestUrlPrefix)/\(apiVersion)" }
     private var lastMovieResult:MDBResult?
     private var _innerPage = 0
-
+    
     private var headers:[String:String] = [:]
     
     let sessionConfiguration = URLSessionConfiguration.default// URLSessionConfiguration.default
     
     
-    private var page = 1
     private var apiKey: String
     
+    private var lastRequest:[RequestType:Int] = [:]
     
     
         // MARK: Constructor (Public init)
@@ -76,20 +77,53 @@ class TMDBService {
         self.apiKey = apiKey
         headers["Authorization" ] = "Bearer \(apiKey)"
         headers["Content-Type"  ] = "application/json"
+        
+//        TMDBService.defaultInstance2 = self
     }
     
     
-
-    func getURL(for requestType: RequestType)->URL {
-        let urlString = self.apiUrlPrefix + requestType.rawValue + "?api_key=" + self.apiKey
-        guard let url = URL(string: urlString) else {
-            fatalError("Erro gerando URL")
-        }
+    
+    private func getURL(for requestType: RequestType, page:Int?)->URL? {
+        let urlString = self.apiUrlPrefix + requestType.rawValue + "?api_key=\(self.apiKey)" + "&page=\(page ?? 1)"
+        guard let url = URL(string: urlString) else { return nil }
         return url
     }
     
+    private func setRequestPage(for requestType: RequestType, page:Int? = nil) {
+        lastRequest[requestType] = page ?? lastRequest[requestType]?.nextInt ?? 1
+    }
     
-    func request(requestType: RequestType, then completion: @escaping (Result<MDBRequest, Error>)->Void) {
+    
+    
+    func request(requestType: RequestType, page:Int? = nil,
+                 then completion: @escaping (Result<MDBRequest, Error>)->Void) {
+        
+        setRequestPage(for: requestType, page: page)
+        guard let url = getURL(for: requestType, page: lastRequest[requestType]) else {
+            completion(.failure(ReqError.invalidURLRequest))
+            return
+        }
+        
+        let request = URLRequest(url: url)
+        let task = URLSession.shared.dataTask(with: request,
+                                              completionHandler: { data, urlResponse, error in
+            if let data {
+                guard let result = try? MDBRequest.load(from: data) else {
+                    completion(.failure(ReqError.resultTypeUnmatchedWithExpected))
+                    return
+                }
+                completion(.success(result))
+                return
+            }
+                // else -> Error
+            if let error {
+                completion(.failure(error))
+                debugPrint(String(describing: urlResponse))
+            }
+            
+        })
+        task.resume()
+        
         guard let request = try? MDBRequest.load(fromString: dummyData) else {
             completion(.failure(ReqError.unknownError))
             return
@@ -97,7 +131,32 @@ class TMDBService {
         completion(.success(request))
     }
     
-    let dummyData = """
+    func requestImage(from path: String?,
+                      then completion: @escaping (Result<Data, Error>)->Void) {
+        guard let path = path,
+              let url = URL(string: posterUrlPrefix+path) else {
+            completion(.failure(ReqError.unknownError))
+            return
+        }
+        
+        let request = URLRequest(url: url)
+        
+        let task = URLSession.shared.dataTask(with: request, completionHandler: {data, urlResponse, error in
+            debugPrint(urlResponse ?? "no urlResponse")
+            if let data = data {
+                completion(.success(data))
+                return
+            }
+            if let error = error {
+                completion(.failure(error))
+            }
+            
+        })
+        
+        task.resume()
+    }
+    
+    private let dummyData = """
  {
   "page": 1,
   "results": [
@@ -542,10 +601,10 @@ class TMDBService {
 }
 """
     /*
-
-
-  ]
-}
-"""
-     */
+     
+     
+     ]
      }
+     """
+     */
+}

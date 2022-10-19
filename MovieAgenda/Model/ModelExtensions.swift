@@ -35,6 +35,8 @@ extension Int {
         self = self < lower ? lower : self > upper ? upper : self
         return self
     }
+    
+    var nextInt:Int {self+1}
 }
 
 extension Array where Element == String {
