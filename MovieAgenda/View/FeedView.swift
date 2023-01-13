@@ -8,7 +8,7 @@
 import UIKit
 
 
-class FeedView:UIView {
+class FeedView: UIView {
     let cellReuseIdentifier = "item"
 
     lazy var collectionView:UICollectionView = {
@@ -24,18 +24,21 @@ class FeedView:UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .red
         self.addSubview(collectionView)
+
+        let margins = self.layoutMarginsGuide
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 0).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 2).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 2).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 0).isActive = true
+
+        self.backgroundColor = collectionView.backgroundColor
+
     }
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        let margins = self.layoutMarginsGuide
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 0).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 0).isActive = true
         
         
         

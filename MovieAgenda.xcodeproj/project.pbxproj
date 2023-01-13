@@ -23,6 +23,8 @@
 		8C533FA228FD836800D41744 /* MDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C533FA128FD836800D41744 /* MDBRequest.swift */; };
 		8C533FBA28FE75FC00D41744 /* ServicesExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C533FB928FE75FC00D41744 /* ServicesExtensions.swift */; };
 		8C86C68028FEEB7D00A9EC50 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86C67F28FEEB7D00A9EC50 /* FeedCollectionViewCell.swift */; };
+		8C877F752900DC5D00599B40 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C877F742900DC5D00599B40 /* DetailViewController.swift */; };
+		8C877F772900E02E00599B40 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C877F762900E02E00599B40 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		8C533FA128FD836800D41744 /* MDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBRequest.swift; sourceTree = "<group>"; };
 		8C533FB928FE75FC00D41744 /* ServicesExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesExtensions.swift; sourceTree = "<group>"; };
 		8C86C67F28FEEB7D00A9EC50 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
+		8C877F742900DC5D00599B40 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8C877F762900E02E00599B40 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,10 +80,9 @@
 		8C009A8628FD0CAA00382BE3 /* MovieAgenda */ = {
 			isa = PBXGroup;
 			children = (
-				8C009A9D28FD0D1800382BE3 /* Controller */,
 				8C009A9C28FD0D1100382BE3 /* View */,
+				8C009A9D28FD0D1800382BE3 /* Controller */,
 				8C009A9B28FD0D0900382BE3 /* Model */,
-				8C009AB128FD14E400382BE3 /* Network */,
 				8C009A9028FD0CAE00382BE3 /* Assets.xcassets */,
 				8C009A9228FD0CAE00382BE3 /* LaunchScreen.storyboard */,
 				8C009A9528FD0CAE00382BE3 /* Info.plist */,
@@ -94,6 +97,7 @@
 				8C009AAD28FD141300382BE3 /* MDBResult.swift */,
 				8C009AA928FD124300382BE3 /* MDBGenre.swift */,
 				8C009AAB28FD135100382BE3 /* ModelExtensions.swift */,
+				8C009AB128FD14E400382BE3 /* Network */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -103,6 +107,7 @@
 			children = (
 				8C009A9E28FD0E2A00382BE3 /* FeedView.swift */,
 				8C86C67F28FEEB7D00A9EC50 /* FeedCollectionViewCell.swift */,
+				8C877F762900E02E00599B40 /* DetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -113,6 +118,7 @@
 				8C009A8728FD0CAA00382BE3 /* AppDelegate.swift */,
 				8C009A8928FD0CAA00382BE3 /* SceneDelegate.swift */,
 				8C009A8B28FD0CAA00382BE3 /* FeedViewController.swift */,
+				8C877F742900DC5D00599B40 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -215,8 +221,10 @@
 				8C009AAC28FD135100382BE3 /* ModelExtensions.swift in Sources */,
 				8C009AAA28FD124400382BE3 /* MDBGenre.swift in Sources */,
 				8C86C68028FEEB7D00A9EC50 /* FeedCollectionViewCell.swift in Sources */,
+				8C877F772900E02E00599B40 /* DetailView.swift in Sources */,
 				8C009A8A28FD0CAA00382BE3 /* SceneDelegate.swift in Sources */,
 				8C533FBA28FE75FC00D41744 /* ServicesExtensions.swift in Sources */,
+				8C877F752900DC5D00599B40 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

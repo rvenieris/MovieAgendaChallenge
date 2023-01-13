@@ -23,8 +23,8 @@ public struct MDBResult: Codable, Identifiable {
     public var backdropPath: String?
     public var mediaType: MediaType
     public var genreIDS: [Int]?
-    public var voteAverage: Double
-    public var voteCount: Int
+    public var voteAverage: Double?
+    public var voteCount: Int?
     
     public var posterURL: URL? {return fullImagePath(for: posterPath)}
     public var backdropURL: URL?  {return fullImagePath(for: backdropPath)}
@@ -38,6 +38,7 @@ public struct MDBResult: Codable, Identifiable {
     public let popularity: Double?
     public let firstAirDate: String?
     public let originCountry: [String]?
+    
     
     enum CodingKeys: String, CodingKey {
         case adult = "adult"

@@ -11,8 +11,8 @@ class FeedCollectionViewCell: UICollectionViewCell {
 
     let imageView:UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(systemName: "film", withConfiguration:UIImage.SymbolConfiguration(weight: .light))
-        view.contentMode = .scaleAspectFit
+        view.image = UIImage(systemName: "film", withConfiguration: UIImage.SymbolConfiguration(weight: .light))
+        view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
         view.layer.cornerRadius = 12
         view.backgroundColor = .lightGray
@@ -25,20 +25,16 @@ class FeedCollectionViewCell: UICollectionViewCell {
         label.font = UIFont.systemFont(ofSize: 40)
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.1
-        label.textColor = .magenta
-        label.tintColor = .red
-        label.backgroundColor = .green
         return label
     }()
     
     
     override init(frame: CGRect) {
-        
+        print(frame)
         super.init(frame: frame)
             // add subviews
         contentView.addSubview(imageView)
         contentView.addSubview(label)
-        print(frame)
 
         label.translatesAutoresizingMaskIntoConstraints=false
         label.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
@@ -50,16 +46,14 @@ class FeedCollectionViewCell: UICollectionViewCell {
         imageView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         imageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: label.topAnchor).isActive = true
-
-
+        imageView.bottomAnchor.constraint(lessThanOrEqualTo: label.topAnchor).isActive = true
     }
     
     required init?(coder: NSCoder) { super.init(coder: coder) }
     
     func setUp(for item:MDBResult) {
-        self.label.text = item.name ?? "No Title"
-        
+        self.label.text = item.title ?? item.name ?? item.originalTitle ?? item.originalName ?? "No Title"
+
         TMDBService.defaultInstance.requestImage(from: item.posterPath, then: {result in
             switch result {
                 case .success(let data):
