@@ -12,6 +12,8 @@ class DetailViewController: UIViewController {
     
     let detailView: DetailView
     
+    let dateFormatter = DateFormatter()
+    
     init(result: MDBResult) {
         self.result = result
         self.detailView = DetailView(result: result)
@@ -67,7 +69,7 @@ extension DetailViewController: UIScrollViewDelegate {
         }
         
         else {
-            detailView.scrollWarning.text = "Scroll Down to Dismiss"
+            detailView.scrollWarning.text = "Keep Scrolling to Dismiss"
             detailView.scrollWarning.textColor = UIColor.black
         }
         

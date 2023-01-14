@@ -21,24 +21,26 @@ class DetailView: UIView {
         return view
     }()
     
-    lazy var id               = createLabel(name: "Id", content: result.id, alignment: .center)
-    lazy var title            = createLabel(name: "Title", content: result.title ?? result.name, alignment: .center)
-    lazy var originalTitle    = createLabel(name: "Original Title", content: result.originalTitle ?? result.originalName, alignment: .center)
-    lazy var mediaType        = createLabel(name: "Media Type", content: result.mediaType.rawValue, alignment: .center)
-    lazy var voteAverage      = createLabel(name: "Vote Average", content: round(result.voteAverage! * 10) / 10.0, alignment: .center)
-    lazy var voteCount        = createLabel(name: "Total Votes", content: result.voteCount, alignment: .center)
+
+    
+    lazy var id               = createLabel(content: result.id, alignment: .center)
+    lazy var title            = createLabel(content: result.title ?? result.name, alignment: .center, fontSize: 35)
+    lazy var originalTitle    = createLabel(content: result.originalTitle ?? result.originalName, alignment: .center)
+    lazy var mediaType        = createLabel(name: "Media Type", content: result.mediaType.rawValue.uppercased(), alignment: .center)
+    lazy var voteAverage      = createLabel(name: "Vote Average", content: String(round(result.voteAverage! * 10) / 10.0) + " (\(result.voteCount!) votes)", alignment: .center)
+//    lazy var voteCount        = createLabel(name: "Total Votes", content: result.voteCount, alignment: .center)
     lazy var releaseDate     = createLabel(name: "Release Date", content: result.firstAirDate ?? result.releaseDate, alignment: .center)
     lazy var popularity       = createLabel(name: "Popularity", content: result.popularity, alignment: .center)
     lazy var overview         = createLabel(name: "Sinopse", content: "\n"+(result.overview ?? ""), alignment: .justified)
 
     var viewArray: [UIView] {
-        [id,title,originalTitle,mediaType,voteCount,voteAverage,releaseDate,popularity, overview]
+        [title,id,mediaType,voteAverage,releaseDate,popularity, overview]
     }
     
     
     lazy var scrollWarning: UILabel = {
         let label = UILabel()
-        label.text = "Scroll Down to Dismiss"
+        label.text = "Keep Scrolling to Dismiss"
         label.font = UIFont.boldSystemFont(ofSize: 30)
         label.alpha = 0
         return label
@@ -101,12 +103,13 @@ class DetailView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints=false
 //        stackView.topAnchor.constraint(equalTo: backdrop.bottomAnchor).isActive = true
         stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -10).isActive = true
-//        stackView.setCustomSpacing(15, after: voteAverage)
         stackView.spacing = 30
 //        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         stackView.heightAnchor.constraint(greaterThanOrEqualTo: self.heightAnchor).isActive = true
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
+        stackView.setCustomSpacing(2, after: title)
+
 //        stackView.backgroundColor = UIColor.red
 //        stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
 //        stackView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 281/500).isActive = true
@@ -131,20 +134,20 @@ class DetailView: UIView {
     }
     
     
-    func createLabel<T>(name:String, content:T?, alignment: NSTextAlignment)->UILabel {
+    func createLabel<T>(name:String? = nil, content:T?, alignment: NSTextAlignment, fontSize: CGFloat = 20)->UILabel {
         var wrappedContent:String = "no data"
 //        if content is Double {
 //        }
         if let content {wrappedContent = "\(content)"}
         
         let attText = NSMutableAttributedString()
-        let attSpace = NSMutableAttributedString(string: ": ")
+        let attSpace = NSMutableAttributedString(string: (name == nil) ? "" : ": ")
         let attributes:[NSAttributedString.Key : Any] = [
-                   .font : UIFont.boldSystemFont(ofSize: 20)
+                   .font : UIFont.boldSystemFont(ofSize: fontSize)
                ]
         
-        let attName = NSMutableAttributedString(string:name, attributes: attributes)
-        let attContent = NSMutableAttributedString(string: wrappedContent)
+        let attName = NSMutableAttributedString(string:name ?? "", attributes: attributes)
+        let attContent = NSMutableAttributedString(string: wrappedContent, attributes: (name == nil) ? attributes : nil)
         
         attText.append(attName)
         attText.append(attSpace)

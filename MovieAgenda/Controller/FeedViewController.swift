@@ -28,7 +28,7 @@ class FeedViewController: UIViewController {
         feedView.collectionView.delegate = self
         feedView.collectionView.dataSource = self
         
-        requestMovies(pages: 10)
+        requestMovies(pages: 30)
     }
 
     func requestMovies(pages:Int = 1) {
