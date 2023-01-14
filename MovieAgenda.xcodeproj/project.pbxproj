@@ -14,17 +14,17 @@
 		8C009A9428FD0CAE00382BE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C009A9228FD0CAE00382BE3 /* LaunchScreen.storyboard */; };
 		8C009A9F28FD0E2A00382BE3 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C009A9E28FD0E2A00382BE3 /* FeedView.swift */; };
 		8C009AA428FD0EF300382BE3 /* CodableExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 8C009AA328FD0EF300382BE3 /* CodableExtensions */; };
-		8C009AA628FD0F0A00382BE3 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C009AA528FD0F0A00382BE3 /* Secrets.swift */; };
 		8C009AAA28FD124400382BE3 /* MDBGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C009AA928FD124300382BE3 /* MDBGenre.swift */; };
 		8C009AAC28FD135100382BE3 /* ModelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C009AAB28FD135100382BE3 /* ModelExtensions.swift */; };
 		8C009AAE28FD141400382BE3 /* MDBResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C009AAD28FD141300382BE3 /* MDBResult.swift */; };
-		8C009AB028FD148B00382BE3 /* TMDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C009AAF28FD148B00382BE3 /* TMDB.swift */; };
-		8C009AB328FD155200382BE3 /* TMDBServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C009AB228FD155200382BE3 /* TMDBServices.swift */; };
 		8C533FA228FD836800D41744 /* MDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C533FA128FD836800D41744 /* MDBRequest.swift */; };
-		8C533FBA28FE75FC00D41744 /* ServicesExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C533FB928FE75FC00D41744 /* ServicesExtensions.swift */; };
 		8C86C68028FEEB7D00A9EC50 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86C67F28FEEB7D00A9EC50 /* FeedCollectionViewCell.swift */; };
 		8C877F752900DC5D00599B40 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C877F742900DC5D00599B40 /* DetailViewController.swift */; };
 		8C877F772900E02E00599B40 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C877F762900E02E00599B40 /* DetailView.swift */; };
+		8CAA8C4E2971F82900D6CD4F /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAA8C4D2971F82900D6CD4F /* Secrets.swift */; };
+		8CAA8C522971F8EF00D6CD4F /* TMDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAA8C4F2971F8EF00D6CD4F /* TMDB.swift */; };
+		8CAA8C532971F8EF00D6CD4F /* TMDBServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAA8C502971F8EF00D6CD4F /* TMDBServices.swift */; };
+		8CAA8C542971F8EF00D6CD4F /* ServicesExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAA8C512971F8EF00D6CD4F /* ServicesExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,17 +36,17 @@
 		8C009A9328FD0CAE00382BE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C009A9528FD0CAE00382BE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C009A9E28FD0E2A00382BE3 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
-		8C009AA528FD0F0A00382BE3 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		8C009AA928FD124300382BE3 /* MDBGenre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDBGenre.swift; sourceTree = "<group>"; };
 		8C009AAB28FD135100382BE3 /* ModelExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelExtensions.swift; sourceTree = "<group>"; };
 		8C009AAD28FD141300382BE3 /* MDBResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDBResult.swift; sourceTree = "<group>"; };
-		8C009AAF28FD148B00382BE3 /* TMDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDB.swift; sourceTree = "<group>"; };
-		8C009AB228FD155200382BE3 /* TMDBServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBServices.swift; sourceTree = "<group>"; };
 		8C533FA128FD836800D41744 /* MDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBRequest.swift; sourceTree = "<group>"; };
-		8C533FB928FE75FC00D41744 /* ServicesExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesExtensions.swift; sourceTree = "<group>"; };
 		8C86C67F28FEEB7D00A9EC50 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		8C877F742900DC5D00599B40 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8C877F762900E02E00599B40 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		8CAA8C4D2971F82900D6CD4F /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		8CAA8C4F2971F8EF00D6CD4F /* TMDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDB.swift; sourceTree = "<group>"; };
+		8CAA8C502971F8EF00D6CD4F /* TMDBServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDBServices.swift; sourceTree = "<group>"; };
+		8CAA8C512971F8EF00D6CD4F /* ServicesExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,10 +126,10 @@
 		8C009AB128FD14E400382BE3 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				8C009AA528FD0F0A00382BE3 /* Secrets.swift */,
-				8C009AAF28FD148B00382BE3 /* TMDB.swift */,
-				8C009AB228FD155200382BE3 /* TMDBServices.swift */,
-				8C533FB928FE75FC00D41744 /* ServicesExtensions.swift */,
+				8CAA8C512971F8EF00D6CD4F /* ServicesExtensions.swift */,
+				8CAA8C4F2971F8EF00D6CD4F /* TMDB.swift */,
+				8CAA8C502971F8EF00D6CD4F /* TMDBServices.swift */,
+				8CAA8C4D2971F82900D6CD4F /* Secrets.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -210,20 +210,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C009AB328FD155200382BE3 /* TMDBServices.swift in Sources */,
+				8CAA8C532971F8EF00D6CD4F /* TMDBServices.swift in Sources */,
+				8CAA8C4E2971F82900D6CD4F /* Secrets.swift in Sources */,
 				8C009A9F28FD0E2A00382BE3 /* FeedView.swift in Sources */,
+				8CAA8C522971F8EF00D6CD4F /* TMDB.swift in Sources */,
 				8C533FA228FD836800D41744 /* MDBRequest.swift in Sources */,
 				8C009AAE28FD141400382BE3 /* MDBResult.swift in Sources */,
-				8C009AA628FD0F0A00382BE3 /* Secrets.swift in Sources */,
 				8C009A8C28FD0CAA00382BE3 /* FeedViewController.swift in Sources */,
-				8C009AB028FD148B00382BE3 /* TMDB.swift in Sources */,
 				8C009A8828FD0CAA00382BE3 /* AppDelegate.swift in Sources */,
 				8C009AAC28FD135100382BE3 /* ModelExtensions.swift in Sources */,
 				8C009AAA28FD124400382BE3 /* MDBGenre.swift in Sources */,
+				8CAA8C542971F8EF00D6CD4F /* ServicesExtensions.swift in Sources */,
 				8C86C68028FEEB7D00A9EC50 /* FeedCollectionViewCell.swift in Sources */,
 				8C877F772900E02E00599B40 /* DetailView.swift in Sources */,
 				8C009A8A28FD0CAA00382BE3 /* SceneDelegate.swift in Sources */,
-				8C533FBA28FE75FC00D41744 /* ServicesExtensions.swift in Sources */,
 				8C877F752900DC5D00599B40 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
