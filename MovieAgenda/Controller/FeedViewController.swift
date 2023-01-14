@@ -107,7 +107,6 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
         // (750/500) == Image Original size proportion
         // (1/10) == Label size
         size.height = size.width * ( (750/500) + (1/10))
-        
         return size
     }
 }

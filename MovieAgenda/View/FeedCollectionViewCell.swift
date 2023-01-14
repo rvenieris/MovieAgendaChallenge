@@ -22,7 +22,8 @@ class FeedCollectionViewCell: UICollectionViewCell {
     let label:UILabel = {
         let label = UILabel()
         label.text = "No Title"
-        label.font = UIFont.systemFont(ofSize: 40)
+        label.font = UIFont.boldSystemFont(ofSize: 40)
+        label.textAlignment = NSTextAlignment(.center)
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.1
         return label
@@ -35,12 +36,15 @@ class FeedCollectionViewCell: UICollectionViewCell {
             // add subviews
         contentView.addSubview(imageView)
         contentView.addSubview(label)
-
+        
+     
+        
         label.translatesAutoresizingMaskIntoConstraints=false
         label.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         label.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         label.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         label.heightAnchor.constraint(lessThanOrEqualTo: self.heightAnchor, multiplier: 0.1).isActive = true
+        label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 3).isActive = true
 
         imageView.translatesAutoresizingMaskIntoConstraints=false
         imageView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
@@ -53,7 +57,13 @@ class FeedCollectionViewCell: UICollectionViewCell {
     
     func setUp(for item:MDBResult) {
         self.label.text = item.title ?? item.name ?? item.originalTitle ?? item.originalName ?? "No Title"
+        
+        var partsOfTitle: [String] = []
+        // Removing big titles by only including what comes before ":"
+        partsOfTitle = label.text!.components(separatedBy: ":")
+        self.label.text = partsOfTitle.first!
 
+        
         TMDBService.defaultInstance.requestImage(from: item.posterPath, then: {result in
             switch result {
                 case .success(let data):
